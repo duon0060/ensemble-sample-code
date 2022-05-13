@@ -45,7 +45,7 @@ const LabelButton = styled.TouchableOpacity`
   padding: 5px;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  background-color: #4eb7e2;
 
   border-radius: 5px;
 `;
@@ -98,13 +98,13 @@ export const MovieCard = () => {
       <RightContent>
         <MovieTitle>{movieSearch.title}</MovieTitle>
         <MovieRelease>{`Year of Release: ${movieSearch.year}`}</MovieRelease>
-        <LabelButton onPress={handlePressButton} activeOpacity={1}>
-          <LabelButtonText>Display Label</LabelButtonText>
-        </LabelButton>
-        <LabelContainer display={labelVisible}>
-          <LabelText>A Label</LabelText>
-        </LabelContainer>
       </RightContent>
+      <LabelButton onPress={handlePressButton} activeOpacity={1}>
+        <LabelButtonText>Display Label</LabelButtonText>
+      </LabelButton>
+      <LabelContainer display={labelVisible}>
+        <LabelText>A Label</LabelText>
+      </LabelContainer>
     </CardContainer>
   );
 };
