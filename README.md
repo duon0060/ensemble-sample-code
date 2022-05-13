@@ -1,11 +1,11 @@
 ## Project - App
 Implement an iOS app that can search OMDB for movies.
 
-#### Tech
+### Tech
 Expo - React native
 OMDb API
 
-#### How to run
+### How to run
 > git clone https://github.com/duon0060/ensemble-sample-code.git
 
 > cd ensemble-sample-code
@@ -14,5 +14,5 @@ OMDb API
 
 > yarn start
 
-#### Demo video
+### Demo video
 [![App Running Demo](./assets/capture.png)](https://www.youtube.com/shorts/Lc7NFMfKd0U)
