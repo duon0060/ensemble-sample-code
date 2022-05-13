@@ -1,12 +1,19 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components/native";
-import { Snackbar } from "react-native-paper";
+import { StyleSheet } from "react-native";
 import { MovieSearchContext } from "../context/movie.search.context";
 
 const CardContainer = styled.View`
   background-color: white;
   flex-direction: row;
   border-radius: 5px;
+  background-color: #fafafa;
+`;
+const MoviePosterContainer = styled.View`
+  width: 180px;
+  height: 300px;
+  border-radius: 5px;
+  background-color: grey;
 `;
 
 const MoviePoster = styled.Image`
@@ -75,17 +82,19 @@ export const MovieCard = () => {
   };
 
   if (error || !movieSearch) {
-    console.log(error);
     return <EmptyListText>No result</EmptyListText>;
   }
   return (
-    <CardContainer>
-      <MoviePoster
-        source={{
-          uri: movieSearch.poster,
-        }}
-        resizeMode="cover"
-      />
+    <CardContainer style={styles.shadowProp}>
+      <MoviePosterContainer>
+        <MoviePoster
+          source={{
+            uri: movieSearch.poster,
+          }}
+          resizeMode="cover"
+        />
+      </MoviePosterContainer>
+
       <RightContent>
         <MovieTitle>{movieSearch.title}</MovieTitle>
         <MovieRelease>{`Year of Release: ${movieSearch.year}`}</MovieRelease>
@@ -99,3 +108,12 @@ export const MovieCard = () => {
     </CardContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  shadowProp: {
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+});

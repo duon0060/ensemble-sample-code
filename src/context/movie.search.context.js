@@ -8,27 +8,27 @@ export const MovieSearchContextProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  console.log(searchTerm);
+
   const retrieveMovie = () => {
     setIsLoading(true);
     setError(null);
     setTimeout(() => {
-      if (searchTerm) {
-        getMoviesByTitle(searchTerm)
-          .then((movie) => {
-            setIsLoading(false);
-            setMovieSearch(movie);
-          })
-          .catch((err) => {
-            setIsLoading(false);
-            setError(err);
-          });
-      }
+      getMoviesByTitle(searchTerm)
+        .then((movie) => {
+          setIsLoading(false);
+          setMovieSearch(movie);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          setError(err);
+        });
     }, 2000);
   };
 
   useEffect(() => {
-    retrieveMovie();
+    if (searchTerm) {
+      retrieveMovie();
+    }
   }, [searchTerm]);
 
   return (

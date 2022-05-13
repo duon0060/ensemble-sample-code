@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView } from "react-native";
-import { MovieList } from "./src/components/MovieList";
-import { SearchBarComponent } from "./src/components/SearchBarComponent";
+import { HomeScreen } from "./src/screens/HomeScreen";
 import { MovieSearchContextProvider } from "./src/context/movie.search.context";
 
 export default function App() {
@@ -9,8 +8,7 @@ export default function App() {
     <>
       <MovieSearchContextProvider>
         <SafeAreaView style={styles.container}>
-          <SearchBarComponent />
-          <MovieList />
+          <HomeScreen />
         </SafeAreaView>
 
         <StatusBar style="auto" />

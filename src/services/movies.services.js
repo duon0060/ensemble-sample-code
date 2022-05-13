@@ -6,7 +6,6 @@ const baseUrl = "http://www.omdbapi.com/?apikey=";
 export const getMoviesByTitle = async (title) => {
   const formattedTitle = title.trim();
   const url = `${baseUrl}${apiKEY}&t=${formattedTitle}`;
-  console.log(url);
 
   const response = await fetch(url);
   const data = await response.json();
