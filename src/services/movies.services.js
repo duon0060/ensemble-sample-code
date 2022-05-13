@@ -9,10 +9,15 @@ export const getMoviesByTitle = async (title) => {
   console.log(url);
 
   const response = await fetch(url);
+  const data = await response.json();
 
-  if (!response) {
+  if (data.Response === "False") {
     throw new Error("Fetching Error");
   }
 
-  return response.json();
+  return {
+    title: data.Title,
+    year: data.Year,
+    poster: data.Poster,
+  };
 };

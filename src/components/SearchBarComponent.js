@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Searchbar } from "react-native-paper";
-import { getMoviesByTitle } from "../services/movies.services";
+import { MovieSearchContext } from "../context/movie.search.context";
 
 export const SearchBarComponent = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  useEffect(() => {
-    getMoviesByTitle(searchTerm)
-      .then()
-      .catch((err) => console.warn(err));
-  }, [searchTerm]);
+  const { searchTerm, setSearchTerm } = useContext(MovieSearchContext);
 
   return (
     <View style={styles.searchContainer}>
       <Searchbar
         placeholder="Search"
-        onChangeText={setSearchTerm}
+        onChangeText={(text) => (text.length ? setSearchTerm(text) : null)}
         value={searchTerm}
       />
     </View>
