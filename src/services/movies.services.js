@@ -1,5 +1,3 @@
-import React from "react";
-
 const apiKEY = "d69f9775";
 const baseUrl = "http://www.omdbapi.com/?apikey=";
 
